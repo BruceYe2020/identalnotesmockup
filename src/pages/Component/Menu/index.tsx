@@ -103,7 +103,7 @@ const Mainmenu: React.FC = () => {
         <SubMenu key="sub8" title="Forms">
           <Menu.Item key="F1">Orthodontic</Menu.Item>
           {/* <Menu.Item key="F2">Procedure Primary</Menu.Item> */}
-          <Menu.Item key="F9">Procedure Tertiary</Menu.Item>
+          <Menu.Item key="F9">Procedure</Menu.Item>
           <Menu.Item key="F3">General Notes</Menu.Item>
           <Menu.Item key="F4">Day Surgery Admission</Menu.Item>
           <Menu.Item key="F5">Prescription</Menu.Item>

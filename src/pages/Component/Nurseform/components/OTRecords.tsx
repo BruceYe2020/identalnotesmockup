@@ -64,20 +64,20 @@ const OTRecords = ({
       <Card>
         <Collapse defaultActiveKey={['1']}>
           <Panel
-            header=""
+            header="Operative procedure"
             key="1"
             style={{ backgroundColor: isCheckBox1Click ? 'red' : 'white' }}
           >
             <Row className={style['recorded-by']}>
               {/* <Checkbox   onClick={toggleCheckBox1} defaultChecked={isCheckBox1Click}></Checkbox> */}
-              <Checkbox onClick={toggleCheckBox1}></Checkbox>
+              {/* <Checkbox onClick={toggleCheckBox1}></Checkbox>
               <pre> </pre>
               <strong
                 className={style['textInOTRecords']}
                 style={{ backgroundColor: 'lightgray', width: '35%' }}
               >
                 Operative procedure
-              </strong>
+              </strong> */}
 
               {/* <div>
                                 <Input />
@@ -86,39 +86,56 @@ const OTRecords = ({
                             </div> */}
               <TextArea style={{ height: '80px' }}></TextArea>
             </Row>
+            <pre> </pre>
 
             <Row>
-              <Col span={5}>
+              <Col span={7}>
                 <Text className={style['textInOTRecords']}>Surgeon: </Text>
               </Col>
+              <Col>
+                <Select mode="multiple" style={{ width: 315 }}></Select>
+              </Col>
             </Row>
             <Row>
-              <Col span={5}>
+              <Col span={7}>
                 <Text className={style['textInOTRecords']}>Assistant: </Text>
               </Col>
+              <Col>
+                <Select mode="multiple" style={{ width: 315 }}></Select>
+              </Col>
             </Row>
             <Row>
-              <Col span={5}>
+              <Col span={7}>
                 <Text className={style['textInOTRecords']}>Scrub Nurse: </Text>
               </Col>
-            </Row>
-
-            <Row>
-              <Col span={10}>
-                <Text className={style['textInOTRecords']}>
-                  Circulating Nurse:{' '}
-                </Text>
+              <Col>
+                <Select mode="multiple" style={{ width: 315 }}></Select>
               </Col>
             </Row>
 
             <Row>
-              <Col span={15}>
+              <Col span={7}>
                 <Text className={style['textInOTRecords']}>
-                  Surgery Start:{' '}
+                  Circulating Nurse:
                 </Text>
+              </Col>
+              <Select mode="multiple" style={{ width: 315 }}></Select>
+            </Row>
+
+            <Row>
+              <Col span={7}>
+                <Text className={style['textInOTRecords']}>Surgery Start:</Text>
               </Col>
               <Col span={5}>
+                <TimePicker></TimePicker>
+              </Col>
+              <pre> </pre>
+
+              <Col span={2}>
                 <Text className={style['textInOTRecords']}>end: </Text>
+              </Col>
+              <Col span={5}>
+                <TimePicker></TimePicker>
               </Col>
             </Row>
 
@@ -156,16 +173,16 @@ const OTRecords = ({
         {/* <Collapse defaultActiveKey={['1']}> */}
         <Collapse accordion defaultActiveKey={['1']}>
           <Panel
-            header=""
+            header="Sign In"
             key="2"
             style={{ backgroundColor: isCheckBox2Click ? 'red' : 'white' }}
           >
             <Row className={style['recorded-by']}>
               <Col span={1}>
-                <Checkbox onClick={toggleCheckBox2}></Checkbox>
+                {/* <Checkbox onClick={toggleCheckBox2}></Checkbox> */}
               </Col>
               <Col span={16}>
-                <strong>
+                {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -176,7 +193,7 @@ const OTRecords = ({
                     {' '}
                     Sign In
                   </Text>
-                </strong>
+                </strong> */}
               </Col>
 
               <Col>
@@ -259,16 +276,16 @@ const OTRecords = ({
           </Panel>
 
           <Panel
-            header=""
+            header="Time-out"
             key="3"
             style={{ backgroundColor: isCheckBox3Click ? 'red' : 'white' }}
           >
             <Row className={style['recorded-by']}>
               <Col span={1}>
-                <Checkbox onClick={toggleCheckBox3}></Checkbox>
+                {/* <Checkbox onClick={toggleCheckBox3}></Checkbox> */}
               </Col>
               <Col span={16}>
-                <strong>
+                {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -279,7 +296,7 @@ const OTRecords = ({
                     {' '}
                     Time-out
                   </Text>
-                </strong>
+                </strong> */}
               </Col>
 
               <Col>
@@ -359,16 +376,16 @@ const OTRecords = ({
             </Row>
           </Panel>
           <Panel
-            header=""
+            header="Sign-out"
             key="4"
             style={{ backgroundColor: isCheckBox4Click ? 'red' : 'white' }}
           >
             <Row className={style['recorded-by']}>
               <Col span={1}>
-                <Checkbox onClick={toggleCheckBox4}></Checkbox>
+                {/* <Checkbox onClick={toggleCheckBox4}></Checkbox> */}
               </Col>
               <Col span={16}>
-                <strong>
+                {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -379,7 +396,7 @@ const OTRecords = ({
                     {' '}
                     Sign-out
                   </Text>
-                </strong>
+                </strong> */}
               </Col>
 
               <Col>

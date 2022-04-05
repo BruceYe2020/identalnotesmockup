@@ -13,26 +13,26 @@ const Chart: React.FC = () => {
   const [image, setImage] = useState(1);
   const { Panel } = Collapse;
   const changeImage = () => {
-    if (image === 5) setImage(1);
+    if (image === 8) setImage(1);
     else setImage((pre) => pre + 1);
   };
   const getImage = () => {
     switch (image) {
-      // case 1:
-      //   return DentalChart11;
-      // case 2:
-      //   return DentalChart22;
-      // case 3:
-      //   return DentalChart33;
       case 1:
         return DentalChart00;
       case 2:
-        return DentalChart44;
+        return DentalChart22;
       case 3:
-        return DentalChart55;
+        return DentalChart33;
       case 4:
-        return DentalChart66;
+        return DentalChart00;
       case 5:
+        return DentalChart44;
+      case 6:
+        return DentalChart55;
+      case 7:
+        return DentalChart66;
+      case 8:
         return DentalChart77;
     }
   };
