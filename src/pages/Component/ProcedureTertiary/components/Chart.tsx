@@ -8,12 +8,16 @@ import DentalChart44 from '../images/DentalChart44.png';
 import DentalChart55 from '../images/DentalChart55.png';
 import DentalChart66 from '../images/DentalChart66.png';
 import DentalChart77 from '../images/DentalChart77.png';
+import DentalChart88 from '../images/DentalChart88.png';
+import DentalChart99 from '../images/DentalChart99.png';
+import DentalChart111 from '../images/DentalChart111.png';
+import DentalChart100 from '../images/DentalChart100.png';
 
 const Chart: React.FC = () => {
   const [image, setImage] = useState(1);
   const { Panel } = Collapse;
   const changeImage = () => {
-    if (image === 8) setImage(1);
+    if (image === 12) setImage(1);
     else setImage((pre) => pre + 1);
   };
   const getImage = () => {
@@ -34,6 +38,14 @@ const Chart: React.FC = () => {
         return DentalChart66;
       case 8:
         return DentalChart77;
+      case 9:
+        return DentalChart88;
+      case 10:
+        return DentalChart99;
+      case 11:
+        return DentalChart111;
+      case 12:
+        return DentalChart100;
     }
   };
   return (
