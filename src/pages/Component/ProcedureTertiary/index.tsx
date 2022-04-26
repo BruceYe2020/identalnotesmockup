@@ -96,7 +96,7 @@ const data2 = [
         title="explainatory notes: extraction is to remove the teeth"
         placement="right"
       >
-        <Text>EXTRACTION (Tooth 13,14) </Text>
+        <Text>EXTRACTION (Teeth 13,14) </Text>
       </Tooltip>
     ),
     procedurecode: (
@@ -109,18 +109,18 @@ const data2 = [
     unit: '2',
     price: '35',
     toothnumber: (
-      // <Select
-      //   mode="multiple"
-      //   allowClear
-      //   style={{ width: '100%' }}
-      //   placeholder="Please select"
-      //   defaultValue={['17', '19', '22']}
-      //   onChange={handleChange}
-      // >
-      //   {children}
-      // </Select>
+      <Select
+        mode="multiple"
+        allowClear
+        style={{ width: '100%' }}
+        placeholder="14"
+        defaultValue={['17', '19', '22']}
+        onChange={handleChange}
+      >
+        {children}
+      </Select>
       // <Input defaultValue="13,14" />
-      <Input />
+      // <Input />
     ),
   },
   {
@@ -166,11 +166,11 @@ const data3 = [
   {
     key: '15',
     // consumables: 'Implant, Crown, Simple',
-    consumables: '',
-    consumablescode: '',
-    unit: '',
-    price: '',
-    lotnumber: '',
+    consumables: 'MATERIALS/ CONSUMABLES, DS, STANADARD I',
+    consumablescode: 'DLM031',
+    unit: '2',
+    price: '30',
+    lotnumber: 'LOT00332206',
   },
 ];
 
@@ -310,8 +310,11 @@ const ProcedureTertiary: React.FC = () => {
     children.push(<Option key={i}>{i}</Option>);
   }
 
-  function handleChange(value: any) {
+  function handleChangePrint(value: any) {
     console.log(`selected ${value}`);
+    if (value == 'PrintSummary') {
+      setIsModalVisible3(true);
+    }
   }
 
   console.log(moment());
@@ -350,24 +353,35 @@ const ProcedureTertiary: React.FC = () => {
               defaultValue={{ value: 'Completed' }}
             >
               <Option value="Completed">Completed</Option>
+              <Option value="Incomplete">Incomplete</Option>
             </Select>
             <pre> </pre>
             <Button style={{ width: '4%' }}>New</Button>
             <pre> </pre>
             <Button>Save As Final</Button>
             <pre> </pre>
+
             <Button>Save As Draft</Button>
             <pre> </pre>
-            <Button style={{ width: '5%' }}>Delete</Button>
+            <Button style={{ width: '4%' }}>Delete</Button>
             <pre> </pre>
             <Button style={{ width: '5%' }}>Unlock</Button>
             <pre> </pre>
-            {/* <Select style={{ width: '5%' }} defaultValue={{ value: 'Print' }}>
-              <Option value="Print">Print</Option>
-            </Select> */}
-            <Button style={{ width: '5%' }} onClick={showModal3}>
+            <Select
+              style={{ width: '6%' }}
+              defaultValue={{ value: 'Print' }}
+              onChange={handleChangePrint}
+            >
+              <Option value="PrintForm">Print Form</Option>
+              <Option value="PrintSummary">Print Summary</Option>
+              <Option value="PrintChargeForm">Print Charge Form</Option>
+              <Option value="Print" hidden={true}>
+                Print
+              </Option>
+            </Select>
+            {/* <Button style={{ width: '5%' }} onClick={showModal3}>
               Print
-            </Button>
+            </Button> */}
             <PrintProcedureTertiary
               isVisible={isModalVisible3}
               handleOk={handleOk3}
@@ -418,7 +432,7 @@ const ProcedureTertiary: React.FC = () => {
                       labelCol={{ span: 8 }}
                       labelAlign={'left'}
                     >
-                      <Select style={{ width: '64%' }} />
+                      <Select style={{ width: '75%' }} />
                     </Form.Item>
                   </Col>
                   <Col span={5}>
@@ -556,7 +570,7 @@ const ProcedureTertiary: React.FC = () => {
                       labelCol={{ span: 8 }}
                       labelAlign={'left'}
                     >
-                      <Select style={{ width: '64%' }} />
+                      <Select style={{ width: '75%' }} />
                     </Form.Item>
                   </Col>
                   <Col span={5}>
@@ -577,7 +591,7 @@ const ProcedureTertiary: React.FC = () => {
             <Col span={22}>
               <Form
                 labelCol={{ span: 0 }}
-                wrapperCol={{ span: 500 }}
+                wrapperCol={{ span: 0 }}
                 layout="horizontal"
               >
                 <Row>
@@ -588,7 +602,7 @@ const ProcedureTertiary: React.FC = () => {
                       labelAlign={'left'}
                     >
                       <Table
-                        style={{ width: '99%' }}
+                        style={{ width: '100%' }}
                         pagination={false}
                         dataSource={data1}
                         size="small"
@@ -605,7 +619,7 @@ const ProcedureTertiary: React.FC = () => {
                           key="diagnosescode"
                           width="15%"
                         />
-                        <Column
+                        {/* <Column
                           width="15%"
                           title={() => {
                             return (
@@ -632,32 +646,76 @@ const ProcedureTertiary: React.FC = () => {
                             //   </Button>
                             // </div>
                           )}
-                        />
+                        /> */}
                       </Table>
                     </Form.Item>
                   </Col>
+                  <Col span={2}>
+                    <Row>
+                      <Button
+                        style={{ width: '50%', height: '21%', marginLeft: 10 }}
+                        onClick={() => {}}
+                      >
+                        Add
+                      </Button>
+                    </Row>
+                    <span></span>
+                    <Row>
+                      <Button
+                        style={{ width: '50%', marginLeft: 10 }}
+                        onClick={() => {}}
+                      >
+                        Delete
+                      </Button>
+                    </Row>
+                  </Col>
 
-                  <Col span={1}></Col>
+                  {/* <Col span={1}>
+                    <Row>
+                    <Button
+                      style={{ width: '30%', marginLeft: 5,height:'21%'}}
+                      onClick={() => {
+                     
+                      }}
+                    >
+                      Add
+                    </Button>
+                    </Row>
+                    <span></span>
+                    <Row>
+                    <Button
+                      style={{ width: '30%', marginLeft: 10 }}
+                      onClick={() => {
+                      
+                      }}
+                    >
+                      Delete
+                    </Button>
+                    </Row>
+                    
+                  </Col>
+ */}
+
                   <Col span={3}>
                     <Form.Item
-                      label="Time in"
-                      labelCol={{ span: 7 }}
+                      label="Time Start"
+                      labelCol={{ span: 8 }}
                       labelAlign={'left'}
                     >
-                      <TimePicker format={format} style={{ width: '100%' }} />
+                      <TimePicker format={format} style={{ width: '50%' }} />
                     </Form.Item>
                     <Form.Item
-                      label="Time Out"
-                      labelCol={{ span: 7 }}
+                      label="Time End"
+                      labelCol={{ span: 8 }}
                       labelAlign={'left'}
                     >
-                      <TimePicker format={format} style={{ width: '100%' }} />
+                      <TimePicker format={format} style={{ width: '50%' }} />
                     </Form.Item>
                   </Col>
                 </Row>
                 {/* <Divider /> */}
                 <Row>
-                  <Col span={17}>
+                  <Col span={16}>
                     <Form.Item label="Consult/Rev/Procedure">
                       <Table
                         // style={{ width: '100%' }}
@@ -666,6 +724,16 @@ const ProcedureTertiary: React.FC = () => {
                         size="small"
                         // showHeader={false}
                       >
+                        <Column
+                          // title="Procedure"
+                          // title="CONSULTATION(PACKAGE)"
+                          // title="CONSULTATION(PACKAGE)"
+                          title="Crown (Teeth 24,26)"
+                          dataIndex="procedure"
+                          key="procedure"
+                          width="65%"
+                        />
+
                         <Column
                           //  title="Tooth No."
                           title={
@@ -680,19 +748,11 @@ const ProcedureTertiary: React.FC = () => {
                             //   {children}
                             // </Select>
                             // <Input defaultValue={16} />
-                            <Input />
+                            <Input defaultValue={24} />
                           }
                           dataIndex="toothnumber"
                           key="toothnumber"
                           width="6%"
-                        />
-                        <Column
-                          // title="Procedure"
-                          // title="CONSULTATION(PACKAGE)"
-                          title="CONSULTATION(PACKAGE)"
-                          dataIndex="procedure"
-                          key="procedure"
-                          width="70%"
                         />
                         <Column
                           // title="Procedure code"
@@ -722,63 +782,48 @@ const ProcedureTertiary: React.FC = () => {
                           key="price"
                           width="5%"
                         />
-                        <Column
-                          title={() => {
-                            return (
-                              <div>
-                                {/* <Button type="primary" icon={<PlusOutlined />}> */}
-                                {/* <Button
-                                  type="primary"
-                                  style={{ width: '100%' }}
-                                >
-                                  Add
-                                </Button> */}
-
-                                <Space size="middle">
-                                  <a
-                                    onClick={() => {
-                                      setShowChartFilling(true);
-                                    }}
-                                  >
-                                    Add
-                                  </a>
-                                  <a onClick={showdeletee}>Delete</a>
-                                </Space>
-                              </div>
-                            );
-                          }}
-                          key="action"
-                          render={() => (
-                            // <Space size="middle">
-                            //   {/* <a>Edit</a> */}
-                            //   <a>Delete</a>
-                            // </Space>
-                            // <Button type="primary" style={{ width: '100%' }}>
-                            //   Delete
-                            // </Button>
-                            <Space size="middle">
-                              <a
-                                onClick={() => {
-                                  setShowChartExtraction(true);
-                                }}
-                              >
-                                Add
-                              </a>
-                              <a>Delete</a>
-                            </Space>
-                          )}
-                        />
                       </Table>
                     </Form.Item>
                   </Col>
                   <Col span={3}>
-                    <Button
-                      style={{ width: '70%', marginLeft: 15 }}
-                      onClick={() => {
-                        setShowChart(true);
-                      }}
-                    >
-                      Chart
+                    <pre> </pre>
+
+                    <Row>
+                      <Button
+                        style={{ width: '30%', marginLeft: 10, height: '21%' }}
+                        onClick={() => {}}
+                      >
+                        Add
+                      </Button>
+                    </Row>
+                    <span></span>
+                    <Row>
+                      <Button
+                        style={{ width: '30%', marginLeft: 10 }}
+                        onClick={() => {}}
+                      >
+                        Delete
+                      </Button>
+                    </Row>
+                    <Row>
+                      <Button
+                        style={{ width: '30%', marginLeft: 10 }}
+                        onClick={() => {
+                          setShowChart(true);
+                        }}
+                      >
+                        Chart
+                      </Button>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={15}>
+                    <Input style={{ marginLeft: 155, width: '93%' }}></Input>
+                  </Col>
+                  <Col>
+                    <Button style={{ marginLeft: 85, width: '45%' }}>
+                      Desc
                     </Button>
                   </Col>
                 </Row>
@@ -786,7 +831,7 @@ const ProcedureTertiary: React.FC = () => {
               {/* <Divider /> */}
 
               <Row>
-                <Col span={17}>
+                <Col span={16}>
                   <Form.Item label="Xray/Lab/Consumables">
                     <Table
                       // style={{ width: '80%' }}
@@ -799,7 +844,7 @@ const ProcedureTertiary: React.FC = () => {
                         title="LAB SERVICES"
                         dataIndex="consumables"
                         key="consumables"
-                        width="70%"
+                        width="60%"
                       />
                       <Column
                         // title="Consumables code"
@@ -835,54 +880,34 @@ const ProcedureTertiary: React.FC = () => {
                         key="lotnumber"
                         width="15%"
                       /> */}
-                      <Column
-                        width="10%"
-                        title={() => {
-                          return (
-                            // <div>
-                            //   <Button type="primary" style={{ width: '85%' }}>
-                            //     Add
-                            //   </Button>
-                            // </div>
-                            <Space size="middle">
-                              <a>Add</a>
-                              <a onClick={showdeletee}>Delete</a>
-                              <Modal
-                                title=""
-                                visible={showdelete}
-                                onOk={handleOkdelete}
-                                onCancel={handleCanceldelete}
-                                width={600}
-                                style={{ fontSize: 20 }}
-                              >
-                                <Text>
-                                  Are you sure you want to delete tooth no. 12?
-                                </Text>
-                              </Modal>
-                            </Space>
-                          );
-                        }}
-                        key="action"
-                        render={() => (
-                          // <Space size="middle">
-                          //   {/* <a>Edit</a> */}
-                          //   <a>Delete</a>
-                          // </Space>
-                          // <Button type="primary" style={{ width: '85%' }}>
-                          //   Delete
-                          // </Button>
-                          <Space size="middle">
-                            <a>Add</a>
-                            <a>Delete</a>
-                          </Space>
-                        )}
-                      />
                     </Table>
                   </Form.Item>
+                </Col>
+                <Col span={3}>
+                  <pre> </pre>
+
+                  <Row>
+                    <Button
+                      style={{ width: '30%', marginLeft: 10, height: '21%' }}
+                      onClick={() => {}}
+                    >
+                      Add
+                    </Button>
+                  </Row>
+                  <span></span>
+                  <Row>
+                    <Button
+                      style={{ width: '30%', marginLeft: 10 }}
+                      onClick={() => {}}
+                    >
+                      Delete
+                    </Button>
+                  </Row>
                 </Col>
               </Row>
             </Col>
           </Row>
+
           <Divider />
           <Row>
             <Col span={1}>
@@ -891,12 +916,12 @@ const ProcedureTertiary: React.FC = () => {
             <Col span={10} />
             <Col span={12}>
               <Row>
-                <Button
+                {/* <Button
                   style={{ color: 'black', width: '19%' }}
                   onClick={showModaldepartment}
                 >
                   Departmental Template
-                </Button>
+                </Button> */}
 
                 <Modal
                   title="Template for Procedure"
@@ -1020,22 +1045,22 @@ const ProcedureTertiary: React.FC = () => {
                 </Modal>
 
                 <pre style={{ fontSize: '30' }}> </pre>
-                <Button
+                {/* <Button
                   onClick={() => {
                     setShowCarePlanPanel(true);
                   }}
                   style={{ color: 'black', width: '12%' }}
                 >
                   Care Plan
-                </Button>
+                </Button> */}
 
                 <pre style={{ fontSize: '30' }}> </pre>
-                <Button
+                {/* <Button
                   style={{ color: 'black', width: '13%' }}
                   onClick={showModaltimeout}
                 >
                   Time Out
-                </Button>
+                </Button> */}
 
                 <Modal
                   title=""
@@ -1044,92 +1069,105 @@ const ProcedureTertiary: React.FC = () => {
                   onCancel={handleCanceltimeout}
                   width={600}
                   style={{ fontSize: 20 }}
+                  closable={false}
                 >
-                  <Card>
-                    <Row>
-                      <Col span={2}>
+                  <Row>
+                    {/* <Col span={2}>
                         <Checkbox onClick={toggleCheckBox1}></Checkbox>
-                      </Col>
-                      <Col span={22}>
-                        <Collapse accordion defaultActiveKey={['2']}>
-                          <Panel
-                            header="Sign in"
-                            key="1"
-                            style={{
-                              backgroundColor: isCheckBox1Click
-                                ? 'red'
-                                : 'white',
-                            }}
-                          >
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Patient identity and records verified
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Medical history and diagnosis updated
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Correct site */}
-                                  Medications reviewed (include blood thinners)
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Correct radiographs/ medical records */}
-                                  Side and site of operation confirmed and
-                                  marked if applicable
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Functionality of equipment */}
-                                  Procedure reviewed and consented for
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Review of anticoagulant/ antiplatelet */}
-                                  Equipment available and functional
-                                </Text>
-                              </Col>
-                            </Row>
+                      </Col> */}
+                    {/* <Col span={22}> */}
+                    <Col span={24}>
+                      <Collapse accordion defaultActiveKey={['2']}>
+                        <Panel
+                          showArrow={false}
+                          header={
+                            <Checkbox
+                              onClick={toggleCheckBox1}
+                              className={style['ant-checkbox-input']}
+                            >
+                              <strong>Sign In</strong>
+                            </Checkbox>
+                          }
+                          key="1"
+                          style={{
+                            backgroundColor: isCheckBox1Click ? 'red' : 'white',
+                          }}
+                          extra={
+                            <div>
+                              @ <TimePicker />
+                              <span> </span>
+                            </div>
+                          }
+                        >
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                Patient identity and records verified
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                Medical history and diagnosis updated
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Correct site */}
+                                Medications reviewed (include blood thinners)
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Correct radiographs/ medical records */}
+                                Side and site of operation confirmed and marked
+                                if applicable
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Functionality of equipment */}
+                                Procedure reviewed and consented for
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Review of anticoagulant/ antiplatelet */}
+                                Equipment available and functional
+                              </Text>
+                            </Col>
+                          </Row>
 
-                            <pre> </pre>
+                          <pre> </pre>
 
-                            <Row className={style['recorded-by']}>
+                          {/* <Row className={style['recorded-by']}>
                               <strong style={{ fontSize: '17px' }}>
                                 Recorded by:
                               </strong>
@@ -1140,106 +1178,109 @@ const ProcedureTertiary: React.FC = () => {
                                 <p className={style.amphersands}>@</p>
                                 <TimePicker />
                               </div>
-                            </Row>
-                          </Panel>
-                        </Collapse>
-                      </Col>
-                    </Row>
+                            </Row> */}
+                        </Panel>
 
-                    <Row>
-                      <Col span={2}>
-                        <Checkbox onClick={toggleCheckBox2}></Checkbox>
-                      </Col>
-                      <Col span={22}>
-                        <Collapse defaultActiveKey={['2']}>
-                          <Panel
-                            header="Time Out"
-                            key="2"
-                            style={{
-                              backgroundColor: isCheckBox2Click
-                                ? 'red'
-                                : 'white',
-                            }}
-                          >
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Correct patient
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Correct procedure
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Correct site */}
-                                  Correct site
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Correct radiographs/ medical records */}
-                                  Correct radiographs/ documents
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Functionality of equipment */}
-                                  Equipment functional
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Review of anticoagulant/ antiplatelet */}
-                                  Instruments processed
-                                </Text>
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col span={3}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={21}>
-                                <Text style={{ fontSize: 20 }}>
-                                  {/* Review of anticoagulant/ antiplatelet */}
-                                  Anti-coagulant/platelet reviewed
-                                </Text>
-                              </Col>
-                            </Row>
+                        <Panel
+                          showArrow={false}
+                          header={
+                            <Checkbox
+                              onClick={toggleCheckBox2}
+                              className={style['ant-checkbox-input']}
+                            >
+                              <strong>Time Out</strong>
+                            </Checkbox>
+                          }
+                          key="2"
+                          style={{
+                            backgroundColor: isCheckBox2Click ? 'red' : 'white',
+                          }}
+                          extra={
+                            <div>
+                              @ <TimePicker />
+                              <span> </span>
+                            </div>
+                          }
+                        >
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                Correct patient
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                Correct procedure
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Correct site */}
+                                Correct site
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Correct radiographs/ medical records */}
+                                Correct radiographs/ documents
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Functionality of equipment */}
+                                Equipment functional
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Review of anticoagulant/ antiplatelet */}
+                                Instruments processed
+                              </Text>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col span={3}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={21}>
+                              <Text style={{ fontSize: 20 }}>
+                                {/* Review of anticoagulant/ antiplatelet */}
+                                Anti-coagulant/platelet reviewed
+                              </Text>
+                            </Col>
+                          </Row>
 
-                            <pre> </pre>
+                          <pre> </pre>
 
-                            <Row className={style['recorded-by']}>
+                          {/* <Row className={style['recorded-by']}>
                               <strong style={{ fontSize: '17px' }}>
                                 Recorded by:
                               </strong>
@@ -1250,16 +1291,103 @@ const ProcedureTertiary: React.FC = () => {
                                 <p className={style.amphersands}>@</p>
                                 <TimePicker />
                               </div>
-                            </Row>
-                          </Panel>
+                            </Row> */}
+                        </Panel>
+                        <Panel
+                          showArrow={false}
+                          header={
+                            <Checkbox
+                              onClick={toggleCheckBox3}
+                              className={style['ant-checkbox-input']}
+                            >
+                              <strong>Sign Out</strong>
+                            </Checkbox>
+                          }
+                          key="3"
+                          style={{
+                            backgroundColor: isCheckBox3Click ? 'red' : 'white',
+                          }}
+                          extra={
+                            <div>
+                              @ <TimePicker />
+                              <span> </span>
+                            </div>
+                          }
+                        >
+                          {/* <Row>
+                          <Col span={3}>
+                            <Text style={{ fontSize: 20 }}>Time : </Text>
+                          </Col>
+                          <Col span={21}>
+                            <TimePicker></TimePicker>
+                          </Col>
+                        </Row> 
+                        <pre> </pre> */}
+                          <Row>
+                            <Col span={2}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={22}>
+                              <Text style={{ fontSize: 20 }}>
+                                Procedure as planned
+                              </Text>
+                            </Col>
+                          </Row>
 
-                          {/* <Collapse defaultActiveKey={['1']}> */}
-                        </Collapse>
-                      </Col>
-                    </Row>
+                          <Row>
+                            <Col span={2}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={22}>
+                              <Text style={{ fontSize: 20 }}>
+                                Instrument, needle and swab counts complete
+                              </Text>
+                            </Col>
+                          </Row>
 
-                    {/* <Collapse defaultActiveKey={['3']}> */}
-                    {/* <Panel header="Sign Out" key="2">
+                          <Row>
+                            <Col span={2}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={22}>
+                              <Text style={{ fontSize: 20 }}>
+                                Specimen(s) labelled
+                              </Text>
+                            </Col>
+                          </Row>
+
+                          <Row>
+                            <Col span={2}>
+                              <Checkbox />
+                            </Col>
+                            <Col span={22}>
+                              <Text style={{ fontSize: 20 }}>
+                                Equipment(s) functional
+                              </Text>
+                            </Col>
+                          </Row>
+
+                          <pre> </pre>
+
+                          {/* <Row className={style['recorded-by']}>
+                              <strong style={{ fontSize: '17px' }}>
+                                Recorded by:
+                              </strong>
+
+                              <div>
+                                <Col span={1}></Col>
+                                <Input style={{ width: 160 }} />
+                                <p className={style.amphersands}>@</p>
+                                <TimePicker />
+                              </div>
+                            </Row> */}
+                        </Panel>
+                      </Collapse>
+                    </Col>
+                  </Row>
+
+                  {/* <Collapse defaultActiveKey={['3']}> */}
+                  {/* <Panel header="Sign Out" key="2">
                         <Row>
                           <Col span={3}>
                             <Text style={{ fontSize: 20 }}>Time : </Text>
@@ -1332,12 +1460,12 @@ const ProcedureTertiary: React.FC = () => {
                       </Col>
                     </Row> 
                       </Panel> */}
-                    {/* </Collapse> */}
+                  {/* </Collapse> */}
 
-                    {/* <Collapse defaultActiveKey={['2']}> */}
-                    {/* <Panel header="Fall risk" key="4"> */}
+                  {/* <Collapse defaultActiveKey={['2']}> */}
+                  {/* <Panel header="Fall risk" key="4"> */}
 
-                    {/* <Row>
+                  {/* <Row>
                           <Col span={2}>
                             <Checkbox />
                           </Col>
@@ -1353,7 +1481,7 @@ const ProcedureTertiary: React.FC = () => {
                             </Text>
                           </Col>
                         </Row> */}
-                    {/* <Row>
+                  {/* <Row>
                           <Col span={2}>
                             <Checkbox />
                           </Col>
@@ -1374,7 +1502,7 @@ const ProcedureTertiary: React.FC = () => {
                             </Text>
                           </Col>
                         </Row> */}
-                    {/* <Row>
+                  {/* <Row>
                           <Col span={2}>
                             <Checkbox />
                           </Col>
@@ -1394,7 +1522,7 @@ const ProcedureTertiary: React.FC = () => {
                             </Text>
                           </Col>
                         </Row> */}
-                    {/* <Row>
+                  {/* <Row>
                       <Col span={3}>
                         <Checkbox />
                       </Col>
@@ -1440,13 +1568,13 @@ const ProcedureTertiary: React.FC = () => {
                         </Text>
                       </Col>
                     </Row> */}
-                    {/* <p />
+                  {/* <p />
                     <strong>
                       <Text style={{ fontSize: 20 }}> Time Out: </Text>
                     </strong>
                     <TimePicker />
                     <p /> */}
-                    {/* <pre> </pre>
+                  {/* <pre> </pre>
                         <strong>
                           <Text style={{ fontSize: 20 }}> Documented by:</Text>
                         </strong>
@@ -1457,7 +1585,7 @@ const ProcedureTertiary: React.FC = () => {
                           </Button>
                         </Row>
                         <p /> */}
-                    {/* <Row>
+                  {/* <Row>
                       <Col span={19} />
                       <Col>
                         <Button style={{ fontSize: 20, height: '40px' }}>
@@ -1465,111 +1593,24 @@ const ProcedureTertiary: React.FC = () => {
                         </Button>
                       </Col>
                     </Row> */}
-                    {/* </Panel> */}
+                  {/* </Panel> */}
 
-                    <Row>
-                      <Col span={2}>
-                        <Checkbox onClick={toggleCheckBox3}></Checkbox>
-                      </Col>
-                      <Col span={22}>
-                        <Collapse defaultActiveKey={['1']}>
-                          <Panel
-                            header="Sign Out"
-                            key="3"
-                            style={{
-                              backgroundColor: isCheckBox3Click
-                                ? 'red'
-                                : 'white',
-                            }}
-                          >
-                            {/* <Row>
-                          <Col span={3}>
-                            <Text style={{ fontSize: 20 }}>Time : </Text>
-                          </Col>
-                          <Col span={21}>
-                            <TimePicker></TimePicker>
-                          </Col>
-                        </Row> 
-                        <pre> </pre> */}
-                            <Row>
-                              <Col span={2}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={22}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Procedure as planned
-                                </Text>
-                              </Col>
-                            </Row>
-
-                            <Row>
-                              <Col span={2}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={22}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Instrument, needle and swab counts complete
-                                </Text>
-                              </Col>
-                            </Row>
-
-                            <Row>
-                              <Col span={2}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={22}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Specimen(s) labelled
-                                </Text>
-                              </Col>
-                            </Row>
-
-                            <Row>
-                              <Col span={2}>
-                                <Checkbox />
-                              </Col>
-                              <Col span={22}>
-                                <Text style={{ fontSize: 20 }}>
-                                  Equipment(s) functional
-                                </Text>
-                              </Col>
-                            </Row>
-
-                            <pre> </pre>
-
-                            <Row className={style['recorded-by']}>
-                              <strong style={{ fontSize: '17px' }}>
-                                Recorded by:
-                              </strong>
-
-                              <div>
-                                <Col span={1}></Col>
-                                <Input style={{ width: 160 }} />
-                                <p className={style.amphersands}>@</p>
-                                <TimePicker />
-                              </div>
-                            </Row>
-                          </Panel>
-                        </Collapse>
-                      </Col>
-                    </Row>
-
-                    <Row>
-                      <Col span={2}>
+                  {/* <Row> */}
+                  {/* <Col span={2}>
                         <Checkbox onClick={toggleCheckBox4}></Checkbox>
-                      </Col>
-                      <Col span={22}>
-                        <Collapse defaultActiveKey={['1']}>
+                      </Col> */}
+                  {/* <Col span={22}> */}
+                  {/* <Collapse defaultActiveKey={['1']}>
                           <Panel
-                            header="Discharge"
+                            header=""
                             key="4"
                             style={{
                               backgroundColor: isCheckBox4Click
                                 ? 'red'
                                 : 'white',
                             }}
-                          >
-                            {/* <Row>
+                          > */}
+                  {/* <Row>
                           <Col span={3}>
                             <Text style={{ fontSize: 20 }}>Time : </Text>
                           </Col>
@@ -1577,8 +1618,8 @@ const ProcedureTertiary: React.FC = () => {
                             <TimePicker></TimePicker>
                           </Col>
                         </Row>  */}
-                            {/* <pre> </pre> */}
-                            <Row>
+                  {/* <pre> </pre> */}
+                  {/* <Row>
                               <Col span={2}>
                                 <Checkbox />
                               </Col>
@@ -1587,8 +1628,8 @@ const ProcedureTertiary: React.FC = () => {
                                   Assisted to recovery
                                 </Text>
                               </Col>
-                            </Row>
-
+                            </Row> */}
+                  {/* 
                             <Row>
                               <Col span={2}>
                                 <Checkbox />
@@ -1599,11 +1640,9 @@ const ProcedureTertiary: React.FC = () => {
                                   score less than 4
                                 </Text>
                               </Col>
-                            </Row>
+                            </Row> */}
 
-                            <pre> </pre>
-
-                            {/* <strong>
+                  {/* <strong>
                           <Text style={{ fontSize: 20 }}> Documented by:</Text>
                         </strong>
                         <Row>
@@ -1614,27 +1653,30 @@ const ProcedureTertiary: React.FC = () => {
                         </Row>
  */}
 
-                            <Row className={style['recorded-by']}>
-                              <strong style={{ fontSize: '17px' }}>
-                                Recorded by:
-                              </strong>
-
-                              <div>
-                                <Col span={1}></Col>
-                                <Input style={{ width: 160 }} />
-                                <p className={style.amphersands}>@</p>
-                                <TimePicker />
-                              </div>
-                            </Row>
-                          </Panel>
+                  {/* </Panel>
                         </Collapse>
                       </Col>
-                    </Row>
-                  </Card>
+                    </Row> */}
+                  <pre> </pre>
+
+                  <Row className={style['recorded-by']}>
+                    <Card style={{ width: 560 }}>
+                      <strong style={{ fontSize: '17px', marginLeft: '3px' }}>
+                        Recorded by:
+                        <Input style={{ width: 300, marginLeft: '5px' }} />
+                      </strong>
+
+                      <div>
+                        {/* <Col span={2}></Col>
+                                <Input style={{ width: 10 }} /> */}
+                        {/* <p className={style.amphersands}>@</p>
+                                <TimePicker /> */}
+                      </div>
+                    </Card>
+                  </Row>
                 </Modal>
 
-                <pre> </pre>
-
+                {/* 
                 <Button style={{ color: 'black', width: '12%' }}>Audit1</Button>
                 <pre> </pre>
                 <Button style={{ color: 'black', width: '12%' }}>Audit2</Button>
@@ -1645,7 +1687,7 @@ const ProcedureTertiary: React.FC = () => {
                 <pre> </pre>
                 <Button style={{ color: 'black', width: '13%' }}>
                   Template
-                </Button>
+                </Button> */}
               </Row>
             </Col>
           </Row>
@@ -1661,6 +1703,7 @@ const ProcedureTertiary: React.FC = () => {
                   <div className="App">
                     <Collapse defaultActiveKey={['b1']}>
                       <Panel
+                        collapsible={'header'}
                         header="Notes"
                         key="b1"
                         className="boldheader"
@@ -1679,6 +1722,49 @@ const ProcedureTertiary: React.FC = () => {
                             >
                               TOSP Template
                             </Button> */}
+                            <Row>
+                              <Button
+                                style={{ color: 'black', width: '23%' }}
+                                onClick={showModaldepartment}
+                              >
+                                Departmental Template
+                              </Button>
+                              <pre> </pre>
+
+                              <Button
+                                onClick={() => {
+                                  setShowCarePlanPanel(true);
+                                }}
+                                style={{ color: 'black', width: '12%' }}
+                              >
+                                Care Plan
+                              </Button>
+                              <pre> </pre>
+
+                              <Button
+                                style={{ color: 'black', width: '13%' }}
+                                onClick={showModaltimeout}
+                              >
+                                Time Out
+                              </Button>
+                              <pre> </pre>
+
+                              <Button style={{ color: 'black', width: '10%' }}>
+                                Audit1
+                              </Button>
+                              <pre> </pre>
+                              <Button style={{ color: 'black', width: '10%' }}>
+                                Audit2
+                              </Button>
+                              <pre> </pre>
+                              <Button style={{ color: 'black', width: '13%' }}>
+                                Addendum
+                              </Button>
+                              <pre> </pre>
+                              <Button style={{ color: 'black', width: '11%' }}>
+                                Template
+                              </Button>
+                            </Row>
                           </div>
                         }
                       >

@@ -60,17 +60,26 @@ const OTRecords = ({
       onCancel={handleCancel}
       width={750}
       style={{ fontSize: 20 }}
+      footer={false}
+      closable={false}
     >
-      <Card>
-        <Collapse defaultActiveKey={['1']}>
-          <Panel
-            header="Operative procedure"
-            key="1"
-            style={{ backgroundColor: isCheckBox1Click ? 'red' : 'white' }}
-          >
-            <Row className={style['recorded-by']}>
-              {/* <Checkbox   onClick={toggleCheckBox1} defaultChecked={isCheckBox1Click}></Checkbox> */}
-              {/* <Checkbox onClick={toggleCheckBox1}></Checkbox>
+      <Collapse defaultActiveKey={['1']}>
+        <Panel
+          showArrow={false}
+          header={
+            <Checkbox
+              onClick={toggleCheckBox1}
+              className={style['ant-checkbox-input']}
+            >
+              <strong>Operative Procedure</strong>
+            </Checkbox>
+          }
+          key="1"
+          style={{ backgroundColor: isCheckBox1Click ? 'red' : 'white' }}
+        >
+          <Row className={style['recorded-by']}>
+            {/* <Checkbox   onClick={toggleCheckBox1} defaultChecked={isCheckBox1Click}></Checkbox> */}
+            {/* <Checkbox onClick={toggleCheckBox1}></Checkbox>
               <pre> </pre>
               <strong
                 className={style['textInOTRecords']}
@@ -79,110 +88,121 @@ const OTRecords = ({
                 Operative procedure
               </strong> */}
 
-              {/* <div>
+            {/* <div>
                                 <Input />
                                 <p className={style.amphersand}>@</p>
                                 <TimePicker />
                             </div> */}
-              <TextArea style={{ height: '80px' }}></TextArea>
-            </Row>
+            <TextArea style={{ height: '80px' }}></TextArea>
+          </Row>
+          <pre> </pre>
+
+          <Row>
+            <Col span={7}>
+              <Text className={style['textInOTRecords']}>Surgeon: </Text>
+            </Col>
+            <Col>
+              <Select mode="multiple" style={{ width: 315 }}></Select>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={7}>
+              <Text className={style['textInOTRecords']}>Assistant: </Text>
+            </Col>
+            <Col>
+              <Select mode="multiple" style={{ width: 315 }}></Select>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={7}>
+              <Text className={style['textInOTRecords']}>Scrub Nurse: </Text>
+            </Col>
+            <Col>
+              <Select mode="multiple" style={{ width: 315 }}></Select>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col span={7}>
+              <Text className={style['textInOTRecords']}>
+                Circulating Nurse:
+              </Text>
+            </Col>
+            <Select mode="multiple" style={{ width: 315 }}></Select>
+          </Row>
+
+          <Row>
+            <Col span={7}>
+              <Text className={style['textInOTRecords']}>Surgery Start:</Text>
+            </Col>
+            <Col span={5}>
+              <TimePicker></TimePicker>
+            </Col>
             <pre> </pre>
 
-            <Row>
-              <Col span={7}>
-                <Text className={style['textInOTRecords']}>Surgeon: </Text>
-              </Col>
-              <Col>
-                <Select mode="multiple" style={{ width: 315 }}></Select>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={7}>
-                <Text className={style['textInOTRecords']}>Assistant: </Text>
-              </Col>
-              <Col>
-                <Select mode="multiple" style={{ width: 315 }}></Select>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={7}>
-                <Text className={style['textInOTRecords']}>Scrub Nurse: </Text>
-              </Col>
-              <Col>
-                <Select mode="multiple" style={{ width: 315 }}></Select>
-              </Col>
-            </Row>
+            <Col span={2}>
+              <Text className={style['textInOTRecords']}>end: </Text>
+            </Col>
+            <Col span={5}>
+              <TimePicker style={{ width: '80%' }}></TimePicker>
+            </Col>
+          </Row>
 
-            <Row>
-              <Col span={7}>
-                <Text className={style['textInOTRecords']}>
-                  Circulating Nurse:
-                </Text>
-              </Col>
-              <Select mode="multiple" style={{ width: 315 }}></Select>
-            </Row>
+          <Row>
+            <Text style={{ fontSize: 20 }}> Additional Information:</Text>
+          </Row>
 
-            <Row>
-              <Col span={7}>
-                <Text className={style['textInOTRecords']}>Surgery Start:</Text>
-              </Col>
-              <Col span={5}>
-                <TimePicker></TimePicker>
-              </Col>
-              <pre> </pre>
+          <Row>
+            <TextArea style={{ height: '110px' }}></TextArea>
+          </Row>
 
-              <Col span={2}>
-                <Text className={style['textInOTRecords']}>end: </Text>
-              </Col>
-              <Col span={5}>
-                <TimePicker></TimePicker>
-              </Col>
-            </Row>
+          <p />
+          {/* <Text style={{ fontSize: 20 }}> Recorded by:</Text> */}
 
-            <Row>
-              <strong>
-                <Text style={{ fontSize: 20 }}> Remarks:</Text>
-              </strong>
-            </Row>
-
-            <Row>
-              <TextArea style={{ height: '80px' }}></TextArea>
-            </Row>
-
-            <p />
-            <strong>
-              <Text style={{ fontSize: 20 }}> Recorded by:</Text>
-            </strong>
-            <Row>
-              {/* <Input style={{ width: '60%' }} /> */}
-              {/* <Button style={{ fontSize: 20, height: '40px' }}>
+          <Row>
+            {/* <Input style={{ width: '60%' }} /> */}
+            {/* <Button style={{ fontSize: 20, height: '40px' }}>
                             Export
                           </Button> */}
-            </Row>
+          </Row>
 
-            <Row>
+          {/* <Row>
               <Col span={20}></Col>
               <Col span={4}>
                 <Button style={{ fontSize: 20, height: '40px' }}>Export</Button>
               </Col>
-            </Row>
-            <p />
-          </Panel>
-        </Collapse>
+            </Row> */}
+          <p />
+        </Panel>
+      </Collapse>
 
-        {/* <Collapse defaultActiveKey={['1']}> */}
-        <Collapse accordion defaultActiveKey={['1']}>
-          <Panel
-            header="Sign In"
-            key="2"
-            style={{ backgroundColor: isCheckBox2Click ? 'red' : 'white' }}
-          >
-            <Row className={style['recorded-by']}>
-              <Col span={1}>
-                {/* <Checkbox onClick={toggleCheckBox2}></Checkbox> */}
-              </Col>
-              <Col span={16}>
-                {/* <strong>
+      {/* <Collapse defaultActiveKey={['1']}> */}
+      <Collapse accordion defaultActiveKey={['1']}>
+        <Panel
+          showArrow={false}
+          header={
+            <Checkbox
+              onClick={toggleCheckBox2}
+              className={style['ant-checkbox-input']}
+            >
+              <strong>Sign In</strong>
+            </Checkbox>
+          }
+          key="2"
+          style={{ backgroundColor: isCheckBox2Click ? 'red' : 'white' }}
+          extra={
+            <div>
+              @ <TimePicker></TimePicker>
+              <span> </span>
+            </div>
+          }
+        >
+          {/* <Row className={style['recorded-by']}> */}
+          {/* <Col span={1}> */}
+          {/* <Checkbox onClick={toggleCheckBox2}></Checkbox> */}
+          {/* </Col> */}
+          {/* <Col span={16}> */}
+          {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -194,98 +214,109 @@ const OTRecords = ({
                     Sign In
                   </Text>
                 </strong> */}
-              </Col>
+          {/* </Col> */}
 
-              <Col>
+          {/* <Col>
                 <p className={style.amphersands}>@</p>
                 <TimePicker />
-              </Col>
-            </Row>
+              </Col> */}
+          {/* </Row> */}
 
-            <pre> </pre>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Patient identify and records verified{' '}
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Medical history and diagnosis updated
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Medications reviewed{' '}
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Site of operation confirmed and marked if applicable
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Procedure reviewed and consented for
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Equipment available and functional
-                </Text>
-              </Col>
-            </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Patient identify and records verified{' '}
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Medical history and diagnosis updated
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Medications reviewed{' '}
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Site of operation confirmed and marked if applicable
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Procedure reviewed and consented for
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Equipment available and functional
+              </Text>
+            </Col>
+          </Row>
 
-            <Row>
-              <strong>
-                <Text style={{ fontSize: 20 }}> Allergies:</Text>
-              </strong>
-            </Row>
+          <Row>
+            <Text style={{ fontSize: 20 }}> Allergies:</Text>
+          </Row>
 
-            <Row>
-              <TextArea style={{ height: '80px' }}></TextArea>
-            </Row>
-          </Panel>
+          <Row>
+            <TextArea style={{ height: '80px' }}></TextArea>
+          </Row>
+        </Panel>
 
-          <Panel
-            header="Time-out"
-            key="3"
-            style={{ backgroundColor: isCheckBox3Click ? 'red' : 'white' }}
-          >
-            <Row className={style['recorded-by']}>
-              <Col span={1}>
-                {/* <Checkbox onClick={toggleCheckBox3}></Checkbox> */}
-              </Col>
-              <Col span={16}>
-                {/* <strong>
+        <Panel
+          showArrow={false}
+          header={
+            <Checkbox
+              onClick={toggleCheckBox3}
+              className={style['ant-checkbox-input']}
+            >
+              <strong>Time Out</strong>
+            </Checkbox>
+          }
+          key="3"
+          style={{ backgroundColor: isCheckBox3Click ? 'red' : 'white' }}
+          extra={
+            <div>
+              @ <TimePicker></TimePicker>
+              <span> </span>
+            </div>
+          }
+        >
+          {/* <Row className={style['recorded-by']}> */}
+          {/* <Col span={1}> */}
+          {/* <Checkbox onClick={toggleCheckBox3}></Checkbox> */}
+          {/* </Col> */}
+          {/* <Col span={16}> */}
+          {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -297,95 +328,107 @@ const OTRecords = ({
                     Time-out
                   </Text>
                 </strong> */}
-              </Col>
+          {/* </Col> */}
 
-              <Col>
+          {/* <Col>
                 <p className={style.amphersands}>@</p>
                 <TimePicker />
-              </Col>
-            </Row>
+              </Col> */}
+          {/* </Row> */}
 
-            <pre> </pre>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Correct patient{' '}
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Correct procedure
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>Correct site </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Correct radiographs/ documents if applicable
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Equipment functional
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Instruments processed
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Anti-coagulant/platelet reviewed (Manually ticked)
-                </Text>
-              </Col>
-            </Row>
-          </Panel>
-          <Panel
-            header="Sign-out"
-            key="4"
-            style={{ backgroundColor: isCheckBox4Click ? 'red' : 'white' }}
-          >
-            <Row className={style['recorded-by']}>
-              <Col span={1}>
-                {/* <Checkbox onClick={toggleCheckBox4}></Checkbox> */}
-              </Col>
-              <Col span={16}>
-                {/* <strong>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>Correct patient </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Correct procedure
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>Correct site </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Correct radiographs/ documents if applicable
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Equipment functional
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Instruments processed
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              {/* manually */}
+              <Text className={style['textInOTRecords']}>
+                Anti-coagulant/platelet reviewed
+              </Text>
+            </Col>
+          </Row>
+        </Panel>
+        <Panel
+          showArrow={false}
+          header={
+            <Checkbox
+              onClick={toggleCheckBox4}
+              className={style['ant-checkbox-input']}
+            >
+              <strong>Sign Out</strong>
+            </Checkbox>
+          }
+          key="4"
+          style={{ backgroundColor: isCheckBox4Click ? 'red' : 'white' }}
+          extra={
+            <div>
+              @ <TimePicker></TimePicker>
+              <span> </span>
+            </div>
+          }
+        >
+          {/* <Row className={style['recorded-by']}> */}
+          {/* <Col span={1}> */}
+          {/* <Checkbox onClick={toggleCheckBox4}></Checkbox> */}
+          {/* </Col> */}
+          {/* <Col span={16}> */}
+          {/* <strong>
                   <Text
                     style={{
                       fontSize: 20,
@@ -397,82 +440,94 @@ const OTRecords = ({
                     Sign-out
                   </Text>
                 </strong> */}
-              </Col>
+          {/* </Col> */}
 
-              <Col>
+          {/* <Col>
                 <p className={style.amphersands}>@</p>
                 <TimePicker />
-              </Col>
-            </Row>
+              </Col> */}
+          {/* </Row> */}
 
-            <pre> </pre>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Procedure as planned{' '}
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Blood loss less than 50ml
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Instrument, needle and swab counts complete
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  {' '}
-                  Specimen(s) labelled (manually ticked)
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={2}>
-                <Checkbox></Checkbox>
-              </Col>
-              <Col span={21}>
-                <Text className={style['textInOTRecords']}>
-                  Equipment(s) functional
-                </Text>
-              </Col>
-            </Row>
+          {/* <pre> </pre> */}
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Procedure as planned{' '}
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Blood loss less than 50ml
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Instrument, needle and swab counts complete
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                {' '}
+                {/* manually */}
+                Specimen(s) labelled
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={2}>
+              <Checkbox></Checkbox>
+            </Col>
+            <Col span={21}>
+              <Text className={style['textInOTRecords']}>
+                Equipment(s) functional
+              </Text>
+            </Col>
+          </Row>
 
-            <Row>
-              <strong>
-                <Text style={{ fontSize: 20 }}>
-                  {' '}
-                  Post-op concerns and management
-                </Text>
-              </strong>
-            </Row>
+          <Row>
+            <Text style={{ fontSize: 20 }}> Concerns and management</Text>
+          </Row>
 
-            <Row>
-              <TextArea style={{ height: '80px' }}></TextArea>
-            </Row>
-          </Panel>
-        </Collapse>
-      </Card>
+          <Row>
+            <TextArea style={{ height: '80px' }}></TextArea>
+          </Row>
+        </Panel>
+      </Collapse>
+      <pre> </pre>
+
+      <Row>
+        <Card style={{ width: 760 }}>
+          <strong style={{ fontSize: '17px' }}>
+            Recorded by:
+            <Input style={{ width: 300, marginLeft: '5px' }} />
+          </strong>
+
+          <div>
+            {/* <Col span={2}></Col>
+                                <Input style={{ width: 10 }} /> */}
+            {/* <p className={style.amphersands}>@</p>
+                                <TimePicker /> */}
+          </div>
+        </Card>
+      </Row>
     </Modal>
   );
 };

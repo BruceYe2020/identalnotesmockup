@@ -239,7 +239,7 @@ const Nurseform: React.FC = () => {
                       labelCol={{ span: 3 }}
                       labelAlign={'left'}
                     >
-                      <Input style={{ width: '55%' }} />
+                      <Input style={{ width: '51%' }} />
                     </Form.Item>
                   </Col>
                   {/* <Col span={2} /> */}

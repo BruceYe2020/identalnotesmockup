@@ -218,12 +218,12 @@ const Summary: React.FC = () => {
                       key="desc"
                       width={300}
                     />
-                    <Column
+                    {/* <Column
                       title="Status"
                       dataIndex="status"
                       key="status"
                       width={150}
-                    />
+                    /> */}
 
                     {/*<Column
                       title="Category"
