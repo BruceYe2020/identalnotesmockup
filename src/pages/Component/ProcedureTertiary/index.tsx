@@ -114,7 +114,7 @@ const data2 = [
         allowClear
         style={{ width: '100%' }}
         placeholder="14"
-        defaultValue={['17', '19', '22']}
+        // defaultValue={['17', '19', '22']}
         onChange={handleChange}
       >
         {children}
