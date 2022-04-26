@@ -96,7 +96,7 @@ const data2 = [
         title="explainatory notes: extraction is to remove the teeth"
         placement="right"
       >
-        <Text>EXTRACTION (Teeth 13,14) </Text>
+        <Text>EXTRACTION (#13, #14) </Text>
       </Tooltip>
     ),
     procedurecode: (
@@ -728,7 +728,7 @@ const ProcedureTertiary: React.FC = () => {
                           // title="Procedure"
                           // title="CONSULTATION(PACKAGE)"
                           // title="CONSULTATION(PACKAGE)"
-                          title="Crown (Teeth 24,26)"
+                          title="Crown (#24, #26)"
                           dataIndex="procedure"
                           key="procedure"
                           width="65%"
