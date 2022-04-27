@@ -307,7 +307,7 @@ const Nurseform: React.FC = () => {
           </div> */}
 
           <Row>
-            <Col span={21}>
+            <Col span={20}>
               {/* <Form.Item label="Material and consumables"> */}
               <Form.Item label="">
                 <Table
@@ -341,23 +341,21 @@ const Nurseform: React.FC = () => {
                     key="lotnumber"
                     width="5%"
                   />
-                  <Column
-                    width="1%"
-                    title={() => {
-                      return (
-                        <div>{/* <Button type="primary">Add</Button> */}</div>
-                      );
-                    }}
-                    key="action"
-                    render={() => (
-                      <Space size="middle">
-                        <a>Add </a>
-                        <a>Delete</a>
-                      </Space>
-                    )}
-                  />
                 </Table>
               </Form.Item>
+            </Col>
+
+            <Col span={3}>
+              <pre> </pre>
+              <pre> </pre>
+              <Row>
+                <Button style={{ width: '30%' }}>Add</Button>
+              </Row>
+              <Row style={{ marginBottom: 10 }}></Row>
+
+              <Row>
+                <Button>Delete</Button>
+              </Row>
             </Col>
           </Row>
           <Divider />

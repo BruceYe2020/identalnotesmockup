@@ -851,7 +851,13 @@ const ProcedureTertiary: React.FC = () => {
                 </Row>
                 <Row>
                   <Col span={15}>
-                    <Input style={{ marginLeft: 155, width: '93%' }}></Input>
+                    <Input
+                      style={{
+                        marginLeft: 155,
+                        width: '93%',
+                        marginBottom: 10,
+                      }}
+                    ></Input>
                   </Col>
                   <Col>
                     <Button style={{ marginLeft: 85, width: '45%' }}>
@@ -860,6 +866,7 @@ const ProcedureTertiary: React.FC = () => {
                   </Col>
                 </Row>
               </Form>
+
               {/* <Divider /> */}
 
               <Row>
