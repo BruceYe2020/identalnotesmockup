@@ -1703,6 +1703,7 @@ const ProcedureTertiary: React.FC = () => {
                       <strong style={{ fontSize: '17px', marginLeft: '3px' }}>
                         Recorded by:
                         <Input style={{ width: 300, marginLeft: '5px' }} />
+                        <Button style={{ marginLeft: '5px' }}>Export</Button>
                       </strong>
 
                       <div>
