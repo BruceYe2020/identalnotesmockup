@@ -186,7 +186,7 @@ const Nurseform: React.FC = () => {
             <pre> </pre>
             <Button>Unlock</Button>
             <pre> </pre>
-            <Select style={{ width: '5%' }} defaultValue="Print">
+            <Select style={{ width: '7%' }} defaultValue="Print">
               <Option value="Print">Print</Option>
             </Select>
             <pre> </pre>

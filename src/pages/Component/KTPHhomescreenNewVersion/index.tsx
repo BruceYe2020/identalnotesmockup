@@ -21,8 +21,8 @@ import {
 } from 'antd';
 import style from './index.less';
 
-import happyface from '../NHGPhomescreen/images/happyface.png';
-import infectiousdisease from '../KTPHhomescreenNewVersion/images/infectiousdiseaselogo.png';
+import happyface from '../KTPHhomescreenNewVersion/images/happyface.png';
+import infectiousdisease from '../KTPHhomescreenNewVersion/images/infectiousdiseaselogo1.png';
 
 import chestpain from '../NHGPhomescreen/images/chestpain.jpeg';
 import breathlessness from '../NHGPhomescreen/images/Breathlessness.jpeg';
@@ -1021,7 +1021,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                   labelCol={{ span: 4 }}
                   labelAlign={'left'}
                 >
-                  <TextArea style={{ width: '100%', height: 250 }} />
+                  <TextArea style={{ width: '100%', height: 150 }} />
                 </Form.Item>
 
                 <Row>
@@ -1149,7 +1149,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                   </Col>
 
                   <Col span={20}>
-                    <TextArea style={{ height: 250 }}></TextArea>
+                    <TextArea style={{ height: 360 }}></TextArea>
                   </Col>
                 </Row>
 
@@ -1483,7 +1483,10 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </strong>
               <Row>
                 <Col span={2}>
-                  <Checkbox style={{ height: 5 }} />
+                  <Checkbox
+                    style={{ height: 5 }}
+                    className={style['ant-checkbox-input']}
+                  />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1497,7 +1500,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1511,7 +1514,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1530,7 +1533,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </strong>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1543,7 +1546,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1556,7 +1559,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1569,7 +1572,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1582,7 +1585,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1595,7 +1598,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox className={style['ant-checkbox-input']} />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1608,7 +1611,10 @@ const KTPHhomescreenNewVersion: React.FC = () => {
               </Row>
               <Row>
                 <Col span={2}>
-                  <Checkbox />
+                  <Checkbox
+                    className={style['ant-checkbox-input']}
+                    style={{ borderColor: 'black' }}
+                  />
                 </Col>
                 <Col span={22}>
                   <Button
@@ -1670,7 +1676,11 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                   <TextArea style={{ height: 155 }} />
                 </Form.Item>
                 <Form.Item
-                  label={<strong style={{ fontSize: '20px' }}>Comments</strong>}
+                  label={
+                    <strong style={{ fontSize: '20px' }}>
+                      Any other medical concerns?
+                    </strong>
+                  }
                   name="Infectious"
                 >
                   <TextArea style={{ height: 155 }} />
@@ -1834,10 +1844,10 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                     <Row>
                       <Col span={8} offset={1}>
                         {/* <Image src={warningicon} width={70} /> */}
-                        <Image src={infectiousdisease} width={70} height={70} />
+                        <Image src={infectiousdisease} width={80} height={70} />
                       </Col>
                     </Row>
-                    <Row style={{ marginBottom: 40 }}></Row>
+                    <Row style={{ marginBottom: 20 }}></Row>
 
                     <Row>
                       <Button
@@ -1852,11 +1862,19 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                         <strong>Fall Risk</strong>
                       </Button>
                     </Row>
-                    <Row style={{ marginBottom: 20 }}></Row>
+                    <Row style={{ marginBottom: 30 }}></Row>
                     <Row>
-                      <Image src={happyface} width={100} height={100} />
+                      <Image
+                        src={happyface}
+                        width={120}
+                        height={105}
+                        style={{
+                          borderLeftColor: 'black',
+                          borderColor: 'black',
+                        }}
+                      />
                     </Row>
-                    <pre></pre>
+                    <pre> </pre>
 
                     <Form.Item
                       label={
@@ -1865,7 +1883,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                       name="Painscore"
                     >
                       {/* <Select defaultValue="0" style={{ width: '50%' }}> */}
-                      <Select style={{ width: '48%' }}>
+                      <Select style={{ width: '48%' }} disabled={true}>
                         <Option value="0">0</Option>
                         <Option value="1">1</Option>
                         <Option value="2">2</Option>
@@ -1879,6 +1897,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                         <Option value="10">10</Option>
                       </Select>
                     </Form.Item>
+                    <pre> </pre>
                     <Row style={{ marginBottom: 10 }}></Row>
                     <Row>
                       {' '}
@@ -2012,22 +2031,25 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                           <Col span={5} style={{ fontSize: '20px' }}>
                             Pregnancy :
                           </Col>
-
-                          <Col span={1}>
-                            <Checkbox style={{ fontSize: '20px' }}></Checkbox>
+                          <Col span={3}>
+                            <Checkbox className={style['ant-checkbox-input']}>
+                              Yes
+                            </Checkbox>
                           </Col>
 
-                          <Col span={2}>
+                          {/* <Col span={2}>
                             <Text style={{ fontSize: '20px' }}>Yes</Text>
-                          </Col>
+                          </Col> */}
 
                           <Col span={1}>
-                            <Checkbox style={{ fontSize: '20px' }}></Checkbox>
+                            <Checkbox className={style['ant-checkbox-input']}>
+                              No
+                            </Checkbox>
                           </Col>
-
+                          {/* 
                           <Col span={2}>
                             <Text style={{ fontSize: '20px' }}>No</Text>
-                          </Col>
+                          </Col> */}
                         </Row>
                         <pre> </pre>
 
@@ -2042,8 +2064,6 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                               <br></br>
                               <br></br>
                               <br></br>
-                              <br></br>
-                              <br></br>
                               <Row>
                                 <pre> </pre>
                                 <pre> </pre>
@@ -2052,9 +2072,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
 
                                 <pre> </pre>
                                 <pre> </pre>
-                                <pre> </pre>
-                                <pre> </pre>
-                                <pre> </pre>
+
                                 <pre> </pre>
 
                                 <pre> </pre>
@@ -2080,7 +2098,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                                 <pre> </pre>
                                 <pre> </pre>
 
-                                <h1>Signature</h1>
+                                <h3>Signature</h3>
                                 <pre> </pre>
                                 <pre> </pre>
                                 <pre> </pre>
@@ -2094,8 +2112,28 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                                 <pre> </pre>
                                 <pre> </pre>
                                 <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
+                                <pre> </pre>
 
-                                <h1>Date</h1>
+                                <h3>Date</h3>
                               </Row>
                             </div>
 

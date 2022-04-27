@@ -45,6 +45,7 @@ import capture from './images/Capture.png';
 import ckeditorpic from './images/ckeditorpic.png';
 import { useForm } from 'antd/lib/Form/Form';
 import Orthodontics from './components/Orthodontics';
+import OrthodonticsWithCardAdditional from './components/OrthodonticsWithCardAdditional';
 import CarePlan from './components/CarePlan';
 import Chart from './components/Chart';
 import ChartExtraction from './components/ChartExtraction';
@@ -113,7 +114,7 @@ const data2 = [
         mode="multiple"
         allowClear
         style={{ width: '100%' }}
-        placeholder="14"
+        placeholder="T"
         // defaultValue={['17', '19', '22']}
         onChange={handleChange}
       >
@@ -185,9 +186,28 @@ const menu = (
   </Menu>
 );
 
+const options = [
+  { label: 'Orthodontics', value: 'Orthodontics' },
+  { label: 'Scaling', value: 'Scaling' },
+  { label: 'Filling', value: 'Filling' },
+  { label: 'Extraction', value: 'Extraction' },
+  { label: 'Fixed prosthodontics', value: 'FillFixed prosthodonticsing' },
+  { label: 'Removable prosthodontics', value: 'Removable prosthodontics' },
+  { label: 'Endodontics', value: 'Endodontics' },
+  { label: 'Periodontics', value: 'Periodontics' },
+  { label: 'OMS', value: 'OMS' },
+  { label: 'Oral Medicine', value: 'Oral Medicine' },
+  {
+    label: 'Return to GP/SAF/polyclinic',
+    value: 'Return to GP/SAF/polyclinic',
+  },
+];
+
 const ProcedureTertiary: React.FC = () => {
   const [showCarePlanRemarks, setShowCarePlanRemarks] = useState(false);
   const [showCarePlanPanel, setShowCarePlanPanel] = useState(false);
+  const [showCarePlanPanelCardAdditional, setShowCarePlanPanelCardAdditional] =
+    useState(false);
   const [showChart, setShowChart] = useState(false);
   const [showChartExtraction, setShowChartExtraction] = useState(false);
   const [showChartFilling, setShowChartFilling] = useState(false);
@@ -303,6 +323,18 @@ const ProcedureTertiary: React.FC = () => {
   };
   const handleCancel3 = () => {
     setIsModalVisible3(false);
+  };
+
+  const [isModalVisibleCarePlan, setIsModalVisibleCarePlan] = useState(false);
+  const showModalCarePlan = () => {
+    setIsModalVisibleCarePlan(true);
+  };
+  const handleOkCarePlan = () => {
+    setIsModalVisibleCarePlan(false);
+  };
+
+  const handleCancelCarePlan = () => {
+    setIsModalVisibleCarePlan(false);
   };
 
   const children = [];
@@ -1701,7 +1733,7 @@ const ProcedureTertiary: React.FC = () => {
               <Col span={23}>
                 <Form.Item labelCol={{ span: 5 }} labelAlign={'left'}>
                   <div className="App">
-                    <Collapse defaultActiveKey={['b1']}>
+                    <Collapse defaultActiveKey={['b1', 'c1']}>
                       <Panel
                         collapsible={'header'}
                         header="Notes"
@@ -1724,7 +1756,7 @@ const ProcedureTertiary: React.FC = () => {
                             </Button> */}
                             <Row>
                               <Button
-                                style={{ color: 'black', width: '23%' }}
+                                style={{ color: 'black', width: '21%' }}
                                 onClick={showModaldepartment}
                               >
                                 Departmental Template
@@ -1732,17 +1764,64 @@ const ProcedureTertiary: React.FC = () => {
                               <pre> </pre>
 
                               <Button
-                                onClick={() => {
-                                  setShowCarePlanPanel(true);
-                                }}
-                                style={{ color: 'black', width: '12%' }}
+                                // onClick={() => {
+                                //  setShowCarePlanPanel(true);
+
+                                // }}
+                                onClick={showModalCarePlan}
+                                style={{ color: 'black', width: '10%' }}
                               >
                                 Care Plan
                               </Button>
+
+                              <Modal
+                                closable={false}
+                                visible={isModalVisibleCarePlan}
+                                onOk={handleOkCarePlan}
+                                onCancel={handleCancelCarePlan}
+                                width={400}
+                                bodyStyle={{ height: 500 }}
+                                style={{ fontSize: 20, left: 650, top: 175 }}
+                                title="Care Plan"
+                              >
+                                <Row
+                                  gutter={[16, 16]}
+                                  className={style.careplansection}
+                                >
+                                  <Col span={24}>
+                                    <Checkbox.Group
+                                      options={options}
+                                      defaultValue={[
+                                        'Orthodontics',
+                                        'Scaling',
+                                        'Filling',
+                                        'Extraction',
+                                      ]}
+                                    />
+                                  </Col>
+
+                                  <Col span={24}>
+                                    {/* <TextArea style={{ height: 543 }} /> */}
+                                  </Col>
+
+                                  <Col span={24}>
+                                    <Button
+                                      onClick={() => {
+                                        setShowCarePlanPanelCardAdditional(
+                                          true,
+                                        );
+                                      }}
+                                    >
+                                      Confirm Care Plan Created
+                                    </Button>
+                                  </Col>
+                                </Row>
+                              </Modal>
+
                               <pre> </pre>
 
                               <Button
-                                style={{ color: 'black', width: '13%' }}
+                                style={{ color: 'black', width: '10%' }}
                                 onClick={showModaltimeout}
                               >
                                 Time Out
@@ -1757,12 +1836,16 @@ const ProcedureTertiary: React.FC = () => {
                                 Audit2
                               </Button>
                               <pre> </pre>
-                              <Button style={{ color: 'black', width: '13%' }}>
+                              <Button style={{ color: 'black', width: '11%' }}>
                                 Addendum
                               </Button>
                               <pre> </pre>
-                              <Button style={{ color: 'black', width: '11%' }}>
+                              <Button style={{ color: 'black', width: '10%' }}>
                                 Template
+                              </Button>
+                              <pre> </pre>
+                              <Button style={{ color: 'black', width: '11%' }}>
+                                Pain Score
                               </Button>
                             </Row>
                           </div>
@@ -1818,14 +1901,23 @@ const ProcedureTertiary: React.FC = () => {
                         header="Care Plan"
                         key="c1"
                         className="boldheader"
-                        // extra={
-                        //   <Button
-                        //     onClick={buttonClick}
-                        //     style={{ color: 'red' }}
-                        //   >
-                        //     Template
-                        //   </Button>
-                        // }
+                        extra={
+                          <Row>
+                            <Button
+                              onClick={buttonClick}
+                              style={{ backgroundColor: 'red', color: 'black' }}
+                            >
+                              Initiate
+                            </Button>
+                            <pre> </pre>
+                            <Button
+                              onClick={buttonClick}
+                              style={{ color: 'black' }}
+                            >
+                              Template
+                            </Button>
+                          </Row>
+                        }
                       >
                         {showCarePlanRemarks ? (
                           <>
@@ -1839,7 +1931,8 @@ const ProcedureTertiary: React.FC = () => {
                             <p>This is a test remarks for demo purpose</p>
                           </>
                         ) : (
-                          ''
+                          //''
+                          <TextArea style={{ height: 100 }}></TextArea>
                         )}
                       </Panel>
 
@@ -1872,12 +1965,23 @@ const ProcedureTertiary: React.FC = () => {
           </Form>
         </Col>
         <Col span={3}>
-          {showCarePlanPanel ? (
+          {/* {showCarePlanPanel ? (
             <CarePlan
               CreateClicked={() => {
                 setShowCarePlanRemarks(true);
               }}
             />
+          ) : (
+            <Orthodontics />
+          )} */}
+
+          {showCarePlanPanelCardAdditional ? (
+            // <CarePlan
+            //   CreateClicked={() => {
+            //     setShowCarePlanRemarks(true);
+            //   }}
+            // />
+            <OrthodonticsWithCardAdditional />
           ) : (
             <Orthodontics />
           )}
