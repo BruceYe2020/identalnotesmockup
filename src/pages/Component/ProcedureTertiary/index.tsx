@@ -1796,50 +1796,6 @@ const ProcedureTertiary: React.FC = () => {
                                 Care Plan
                               </Button> */}
 
-                              <Modal
-                                closable={false}
-                                visible={isModalVisibleCarePlan}
-                                onOk={handleOkCarePlan}
-                                onCancel={handleCancelCarePlan}
-                                width={400}
-                                bodyStyle={{ height: 500 }}
-                                style={{ fontSize: 20, left: 650, top: 175 }}
-                                title="Care Plan"
-                              >
-                                <Row
-                                  gutter={[16, 16]}
-                                  className={style.careplansection}
-                                >
-                                  <Col span={24}>
-                                    <Checkbox.Group
-                                      options={options}
-                                      defaultValue={[
-                                        'Orthodontics',
-                                        'Scaling',
-                                        'Filling',
-                                        'Extraction',
-                                      ]}
-                                    />
-                                  </Col>
-
-                                  <Col span={24}>
-                                    {/* <TextArea style={{ height: 543 }} /> */}
-                                  </Col>
-
-                                  <Col span={24}>
-                                    <Button
-                                      onClick={() => {
-                                        setShowCarePlanPanelCardAdditional(
-                                          true,
-                                        );
-                                      }}
-                                    >
-                                      Confirm Care Plan Created
-                                    </Button>
-                                  </Col>
-                                </Row>
-                              </Modal>
-
                               <pre> </pre>
 
                               <Button
@@ -1938,7 +1894,7 @@ const ProcedureTertiary: React.FC = () => {
                               onCancel={handleCancelCarePlan}
                               width={400}
                               bodyStyle={{ height: 500 }}
-                              style={{ fontSize: 20, left: 650, top: 175 }}
+                              style={{ fontSize: 20, left: 650, top: 75 }}
                               title="Care Plan"
                             >
                               <Row
