@@ -105,13 +105,13 @@ const Orthodontics: React.FC = () => {
             Add
           </Button>
           <pre> </pre>
-          <Button
+          {/* <Button
             type="primary"
             icon={<CloseOutlined />}
             style={{ width: '38%' }}
           >
             Delete
-          </Button>
+          </Button> */}
         </Row>
         <Card size="small" style={{ width: '90%' }}>
           <Dropdown overlay={menu} trigger={['contextMenu']}>

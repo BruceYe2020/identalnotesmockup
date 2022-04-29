@@ -519,6 +519,7 @@ const OTRecords = ({
             Recorded by:
             <Input style={{ width: 300, marginLeft: '5px' }} />
           </strong>
+          <Button>Export</Button>
 
           <div>
             {/* <Col span={2}></Col>
