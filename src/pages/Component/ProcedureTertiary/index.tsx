@@ -1180,7 +1180,7 @@ const ProcedureTertiary: React.FC = () => {
                             <Col span={21}>
                               <Text style={{ fontSize: 20 }}>
                                 {/* Correct site */}
-                                Medications reviewed (include blood thinners)
+                                Medications reviewed
                               </Text>
                             </Col>
                           </Row>
