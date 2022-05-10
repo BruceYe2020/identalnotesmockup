@@ -20,9 +20,12 @@ import Consent from '@/pages/Component/Consent';
 import Xray from '@/pages/Component/Xray';
 import Summary from '@/pages/Component/Summary';
 import CarePlan from '@/pages/Component/CarePlan';
+
 import TOSP from '@/pages/Component/TOSP';
 import Test from '@/pages/Component/Test';
 import NHGChart from '../NHGChart';
+import KTPHCarePlan from '@/pages/Component/KTPHCarePlan';
+import NHGPCarePlan from '@/pages/Component/NHGPCarePlan';
 
 const Bottom: React.FC = () => {
   let gps3 = [1000, 300];
@@ -134,6 +137,26 @@ const Bottom: React.FC = () => {
             <div className={style.scrollable}>
               <NHGChart />
             </div>
+          )}
+
+          {div.bot === 'careplannhgp' && (
+            <div className={style.scrollable}>
+              <NHGPCarePlan />
+            </div>
+          )}
+          {div.bot === 'careplanktph' && (
+            <div className={style.scrollable}>
+              <KTPHCarePlan />
+            </div>
+          )}
+          {div.bot === 'careplanttsh' && (
+            <div className={style.scrollable}></div>
+          )}
+          {div.bot === 'careplanwhc' && (
+            <div className={style.scrollable}></div>
+          )}
+          {div.bot === 'careplanimh' && (
+            <div className={style.scrollable}></div>
           )}
         </div>
       )}

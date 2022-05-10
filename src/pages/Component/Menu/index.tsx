@@ -158,7 +158,14 @@ const Mainmenu: React.FC = () => {
         <SubMenu key="sub1" title="Notes">
           <Menu.Item key="N1">All</Menu.Item>
           <Menu.Item key="N3">Summary</Menu.Item>
-          <Menu.Item key="N4">Care Plan</Menu.Item>
+          {/* <Menu.Item key="N4">Care Plan</Menu.Item> */}
+        </SubMenu>
+        <SubMenu key="sub4" title="Care Plan">
+          <Menu.Item key="careplannhgp">NHGP</Menu.Item>
+          <Menu.Item key="careplanktph">KTPH</Menu.Item>
+          <Menu.Item key="careplanttsh">TTSH</Menu.Item>
+          <Menu.Item key="careplanwhc">WHC</Menu.Item>
+          <Menu.Item key="careplanimh">IMH</Menu.Item>
         </SubMenu>
         <SubMenu key="sub2" title="Charts">
           <Menu.Item key="C3">NHG Chart</Menu.Item>

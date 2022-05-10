@@ -51,6 +51,7 @@ import Chart from './components/Chart';
 import ChartExtraction from './components/ChartExtraction';
 import ChartFilling from './components/ChartFilling';
 import PrintProcedureTertiary from './components/PrintProcedureTertiary';
+import edittool from './images/edittool.png';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -750,6 +751,30 @@ const ProcedureTertiary: React.FC = () => {
                   </Col>
                 </Row>
                 {/* <Divider /> */}
+
+                <Row>
+                  <Col span={13}>
+                    <Form.Item
+                      label="Procedure Description"
+                      labelCol={{ span: 4 }}
+                      labelAlign={'left'}
+                    >
+                      <Input
+                        style={{
+                          border: '1px solid #0da1db',
+                          width: '128%',
+                          marginBottom: 10,
+                        }}
+                      ></Input>
+                    </Form.Item>
+                  </Col>
+                  {/* <Col span={10}>
+                    <Button style={{ marginLeft: 230, width: '9%' }}>
+                      Desc
+                    </Button>
+                  </Col> */}
+                </Row>
+
                 <Row>
                   <Col span={16}>
                     <Form.Item label="Consult/Rev/Procedure">
@@ -857,22 +882,6 @@ const ProcedureTertiary: React.FC = () => {
                         Chart
                       </Button>
                     </Row>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col span={15}>
-                    <Input
-                      style={{
-                        marginLeft: 155,
-                        width: '93%',
-                        marginBottom: 10,
-                      }}
-                    ></Input>
-                  </Col>
-                  <Col>
-                    <Button style={{ marginLeft: 85, width: '45%' }}>
-                      Desc
-                    </Button>
                   </Col>
                 </Row>
               </Form>
@@ -1124,6 +1133,7 @@ const ProcedureTertiary: React.FC = () => {
                   width={600}
                   style={{ fontSize: 20 }}
                   closable={false}
+                  footer={false}
                 >
                   <Row>
                     {/* <Col span={2}>
@@ -1144,7 +1154,9 @@ const ProcedureTertiary: React.FC = () => {
                           }
                           key="1"
                           style={{
-                            backgroundColor: isCheckBox1Click ? 'red' : 'white',
+                            backgroundColor: isCheckBox1Click
+                              ? 'lightgrey'
+                              : 'white',
                           }}
                           extra={
                             <div>
@@ -1247,7 +1259,9 @@ const ProcedureTertiary: React.FC = () => {
                           }
                           key="2"
                           style={{
-                            backgroundColor: isCheckBox2Click ? 'red' : 'white',
+                            backgroundColor: isCheckBox2Click
+                              ? 'lightgrey'
+                              : 'white',
                           }}
                           extra={
                             <div>
@@ -1359,7 +1373,9 @@ const ProcedureTertiary: React.FC = () => {
                           }
                           key="3"
                           style={{
-                            backgroundColor: isCheckBox3Click ? 'red' : 'white',
+                            backgroundColor: isCheckBox3Click
+                              ? 'lightgrey'
+                              : 'white',
                           }}
                           extra={
                             <div>
@@ -1752,6 +1768,7 @@ const ProcedureTertiary: React.FC = () => {
             wrapperCol={{ span: 200 }}
             layout="horizontal"
           >
+            <Row>Notes:</Row>
             <Row>
               <Col span={23}>
                 <Form.Item labelCol={{ span: 5 }} labelAlign={'left'}>
@@ -1759,7 +1776,15 @@ const ProcedureTertiary: React.FC = () => {
                     <Collapse defaultActiveKey={['b1', 'c1']}>
                       <Panel
                         collapsible={'header'}
-                        header="Notes"
+                        header={
+                          <Image
+                            src={edittool}
+                            width={350}
+                            height={40}
+                            preview={false}
+                          />
+                        }
+                        showArrow={false}
                         key="b1"
                         className="boldheader"
                         extra={
@@ -1779,7 +1804,64 @@ const ProcedureTertiary: React.FC = () => {
                             </Button> */}
                             <Row>
                               <Button
-                                style={{ color: 'black', width: '23%' }}
+                                onClick={showModalCarePlan}
+                                style={{
+                                  backgroundColor: 'red',
+                                  color: 'black',
+                                }}
+                              >
+                                Care Plan
+                              </Button>
+
+                              <Modal
+                                closable={false}
+                                visible={isModalVisibleCarePlan}
+                                onOk={handleOkCarePlan}
+                                onCancel={handleCancelCarePlan}
+                                width={400}
+                                bodyStyle={{ height: 500 }}
+                                style={{ fontSize: 20, left: 800, top: 200 }}
+                                title="Care Plan"
+                                footer={false}
+                              >
+                                <Row
+                                  gutter={[16, 16]}
+                                  className={style.careplansection}
+                                >
+                                  <Col span={24}>
+                                    <Checkbox.Group
+                                      options={options}
+                                      defaultValue={[
+                                        'Orthodontics',
+                                        'Scaling',
+                                        'Filling',
+                                        'Extraction',
+                                      ]}
+                                    />
+                                  </Col>
+
+                                  <Col span={24}>
+                                    {/* <TextArea style={{ height: 543 }} /> */}
+                                  </Col>
+
+                                  <Col span={24}>
+                                    <Button
+                                      onClick={() => {
+                                        setShowCarePlanPanelCardAdditional(
+                                          true,
+                                        );
+                                        setShowCarePlanRemarks(true);
+                                      }}
+                                    >
+                                      Confirm
+                                    </Button>
+                                  </Col>
+                                </Row>
+                              </Modal>
+
+                              <pre> </pre>
+                              <Button
+                                style={{ color: 'black', width: '24%' }}
                                 onClick={showModaldepartment}
                               >
                                 Departmental Template
@@ -1799,7 +1881,7 @@ const ProcedureTertiary: React.FC = () => {
                               <pre> </pre>
 
                               <Button
-                                style={{ color: 'black', width: '13%' }}
+                                style={{ color: 'black', width: '12%' }}
                                 onClick={showModaltimeout}
                               >
                                 Time Out
@@ -1818,12 +1900,8 @@ const ProcedureTertiary: React.FC = () => {
                                 Addendum
                               </Button>
                               <pre> </pre>
-                              <Button style={{ color: 'black', width: '11%' }}>
-                                Template
-                              </Button>
-                              <pre> </pre>
                               <Button style={{ color: 'black', width: '12%' }}>
-                                Pain Score
+                                Template
                               </Button>
                             </Row>
                           </div>
@@ -1873,85 +1951,19 @@ const ProcedureTertiary: React.FC = () => {
                         <Image
                           src={ckeditorpic}
                           style={{ height: 350, width: 1800 }}
+                          preview={false}
                         ></Image>
-                      </Panel>
-                      <Panel
-                        header="Care Plan"
-                        key="c1"
-                        className="boldheader"
-                        extra={
-                          <Row>
-                            <Button
-                              onClick={showModalCarePlan}
-                              style={{ backgroundColor: 'red', color: 'black' }}
-                            >
-                              Initiate
-                            </Button>
-                            <Modal
-                              closable={false}
-                              visible={isModalVisibleCarePlan}
-                              onOk={handleOkCarePlan}
-                              onCancel={handleCancelCarePlan}
-                              width={400}
-                              bodyStyle={{ height: 500 }}
-                              style={{ fontSize: 20, left: 650, top: 75 }}
-                              title="Care Plan"
-                            >
-                              <Row
-                                gutter={[16, 16]}
-                                className={style.careplansection}
-                              >
-                                <Col span={24}>
-                                  <Checkbox.Group
-                                    options={options}
-                                    defaultValue={[
-                                      'Orthodontics',
-                                      'Scaling',
-                                      'Filling',
-                                      'Extraction',
-                                    ]}
-                                  />
-                                </Col>
 
-                                <Col span={24}>
-                                  {/* <TextArea style={{ height: 543 }} /> */}
-                                </Col>
-
-                                <Col span={24}>
-                                  <Button
-                                    onClick={() => {
-                                      setShowCarePlanPanelCardAdditional(true);
-                                    }}
-                                  >
-                                    Confirm Care Plan Created
-                                  </Button>
-                                </Col>
-                              </Row>
-                            </Modal>
-                            <pre> </pre>
-                            <Button
-                              onClick={buttonClick}
-                              style={{ color: 'black' }}
-                            >
-                              Template
-                            </Button>
-                          </Row>
-                        }
-                      >
                         {showCarePlanRemarks ? (
                           <>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
-                            <p>This is a test remarks for demo purpose</p>
+                            <TextArea
+                              style={{ height: 100 }}
+                              placeholder="Care Plan"
+                            ></TextArea>
                           </>
                         ) : (
-                          //''
-                          <TextArea style={{ height: 100 }}></TextArea>
+                          ''
+                          // <TextArea style={{ height: 100 }}></TextArea>
                         )}
                       </Panel>
 
