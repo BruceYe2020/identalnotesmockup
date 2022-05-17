@@ -63,6 +63,15 @@ const NHGPCarePlan: React.FC = () => {
   return (
     <Card style={{ width: '100%', height: 2500 }}>
       <Row>
+        <Text
+          style={{ fontSize: 30, marginLeft: 20 }}
+          underline={true}
+          strong={true}
+        >
+          NHGP
+        </Text>
+      </Row>
+      <Row>
         <Image
           src={NHGPCarePlann}
           style={{ height: 380, width: 1000 }}

@@ -40,6 +40,7 @@ import Removable from '../KTPHCarePlan/images/Removable.png';
 import FixedProstho from '../KTPHCarePlan/images/FixedProstho.png';
 import Extractionn from '../KTPHCarePlan/images/Extractionn.png';
 import Fillingg from '../KTPHCarePlan/images/Fillingg.png';
+import NHGPCarePlann from '../NHGPCarePlan/images/NHGPCarePlan.png';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -59,7 +60,7 @@ const data = [
   },
 ];
 const { Panel } = Collapse;
-const KTPHCarePlan: React.FC = () => {
+const AllCarePlan: React.FC = () => {
   return (
     <Card style={{ width: '100%', height: 2500 }}>
       <Row>
@@ -229,9 +230,25 @@ const KTPHCarePlan: React.FC = () => {
         />
       </Row>
 
+      <Divider orientation="left" style={{ borderColor: 'black' }}></Divider>
+      <Row>
+        <Text
+          style={{ fontSize: 30, marginLeft: 20 }}
+          underline={true}
+          strong={true}
+        >
+          NHGP
+        </Text>
+      </Row>
+
+      <Image
+        src={NHGPCarePlann}
+        style={{ height: 380, width: 1000 }}
+        preview={false}
+      />
       <pre> </pre>
     </Card>
   );
 };
 
-export default KTPHCarePlan;
+export default AllCarePlan;

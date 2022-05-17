@@ -49,10 +49,11 @@ const PrintProcedureTertiary = ({
         <Col>
           {' '}
           <Text
-            style={{ fontSize: 20, color: 'blue' }}
+            style={{ fontSize: 40, color: 'blue' }}
             className={style['patientreportword']}
+            underline={true}
           >
-            PROCEDURE SUMMARY REPORT
+            Patient Report
           </Text>{' '}
         </Col>
       </Row>

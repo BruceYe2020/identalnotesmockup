@@ -41,6 +41,7 @@ import epos_otherfinancalassistance_Y from '../NHGPhomescreen/icon/otherfinancal
 import epos_safcoverage_Y from '../NHGPhomescreen/icon/SAFcoverage.png';
 import epos_outstandingpayment_Y from '../NHGPhomescreen/icon/outstandingpayment.png';
 import Bottom from '../Bottom';
+import signaturepregnancy from '../KTPHhomescreenNewVersion/images/signaturepregnancy.png';
 import { EditOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
@@ -2098,7 +2099,7 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                                 <pre> </pre>
                                 <pre> </pre>
 
-                                <h3>Signature</h3>
+                                {/* <h3>Signature</h3> */}
                                 <pre> </pre>
                                 <pre> </pre>
                                 <pre> </pre>
@@ -2133,7 +2134,16 @@ const KTPHhomescreenNewVersion: React.FC = () => {
                                 <pre> </pre>
                                 <pre> </pre>
 
-                                <h3>Date</h3>
+                                {/* <h3>Date</h3> */}
+                              </Row>
+                              <Row style={{ marginBottom: 10 }}></Row>
+                              <Row>
+                                <Col span={5}>
+                                  <Text>Dated: 15/10/2021 </Text>
+                                </Col>
+                                <Col offset={15}>
+                                  <Text>Signature</Text>
+                                </Col>
                               </Row>
                             </div>
 

@@ -161,6 +161,7 @@ const Mainmenu: React.FC = () => {
           {/* <Menu.Item key="N4">Care Plan</Menu.Item> */}
         </SubMenu>
         <SubMenu key="sub4" title="Care Plan">
+          <Menu.Item key="allcareplan">All</Menu.Item>
           <Menu.Item key="careplannhgp">NHGP</Menu.Item>
           <Menu.Item key="careplanktph">KTPH</Menu.Item>
           <Menu.Item key="careplanttsh">TTSH</Menu.Item>

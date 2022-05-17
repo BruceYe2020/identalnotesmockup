@@ -26,6 +26,7 @@ import Test from '@/pages/Component/Test';
 import NHGChart from '../NHGChart';
 import KTPHCarePlan from '@/pages/Component/KTPHCarePlan';
 import NHGPCarePlan from '@/pages/Component/NHGPCarePlan';
+import AllCarePlan from '@/pages/Component/AllCarePlan';
 
 const Bottom: React.FC = () => {
   let gps3 = [1000, 300];
@@ -136,6 +137,11 @@ const Bottom: React.FC = () => {
           {div.bot === 'C3' && (
             <div className={style.scrollable}>
               <NHGChart />
+            </div>
+          )}
+          {div.bot === 'allcareplan' && (
+            <div className={style.scrollable}>
+              <AllCarePlan />
             </div>
           )}
 

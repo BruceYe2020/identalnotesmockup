@@ -51,6 +51,7 @@ import Chart from './components/Chart';
 import ChartExtraction from './components/ChartExtraction';
 import ChartFilling from './components/ChartFilling';
 import PrintProcedureTertiary from './components/PrintProcedureTertiary';
+import BeforePrintProcedureTertiary from './components/BeforePrintProcedureTertiary';
 import edittool from './images/edittool.png';
 
 const { TextArea } = Input;
@@ -338,6 +339,21 @@ const ProcedureTertiary: React.FC = () => {
     setIsModalVisibleCarePlan(false);
   };
 
+  const [
+    isModalVisibleBeforePrintProcedureTertiary,
+    setIsModalVisibleBeforePrintProcedureTertiary,
+  ] = useState(false);
+  const showModalBeforePrintProcedureTertiary = () => {
+    setIsModalVisibleBeforePrintProcedureTertiary(true);
+  };
+
+  const handleOkBeforePrintProcedureTertiary = () => {
+    setIsModalVisibleBeforePrintProcedureTertiary(false);
+  };
+  const handleCancelBeforePrintProcedureTertiary = () => {
+    setIsModalVisibleBeforePrintProcedureTertiary(false);
+  };
+
   const children = [];
   for (let i = 11; i < 19; i++) {
     children.push(<Option key={i}>{i}</Option>);
@@ -346,7 +362,8 @@ const ProcedureTertiary: React.FC = () => {
   function handleChangePrint(value: any) {
     console.log(`selected ${value}`);
     if (value == 'PrintSummary') {
-      setIsModalVisible3(true);
+      //setIsModalVisible3(true);
+      setIsModalVisibleBeforePrintProcedureTertiary(true);
     }
   }
 
@@ -382,14 +399,14 @@ const ProcedureTertiary: React.FC = () => {
             <StepForwardOutlined style={{ fontSize: 25, color: 'royalblue' }} />
             <pre> </pre>
             <Select
-              style={{ width: '7%' }}
+              style={{ width: '5%' }}
               defaultValue={{ value: 'Completed' }}
             >
               <Option value="Completed">Completed</Option>
               <Option value="Incomplete">Incomplete</Option>
             </Select>
             <pre> </pre>
-            <Button style={{ width: '4%' }}>New</Button>
+            <Button style={{ width: '3%' }}>New</Button>
             <pre> </pre>
             <Button>Save As Final</Button>
             <pre> </pre>
@@ -398,7 +415,7 @@ const ProcedureTertiary: React.FC = () => {
             <pre> </pre>
             <Button style={{ width: '4%' }}>Delete</Button>
             <pre> </pre>
-            <Button style={{ width: '5%' }}>Unlock</Button>
+            <Button style={{ width: '4%' }}>Unlock</Button>
             <pre> </pre>
             <Select
               style={{ width: '6%' }}
@@ -415,21 +432,29 @@ const ProcedureTertiary: React.FC = () => {
             {/* <Button style={{ width: '5%' }} onClick={showModal3}>
               Print
             </Button> */}
+            <BeforePrintProcedureTertiary
+              isVisible={isModalVisibleBeforePrintProcedureTertiary}
+              handleOk={handleOkBeforePrintProcedureTertiary}
+              handleCancel={handleCancelBeforePrintProcedureTertiary}
+            />
             <PrintProcedureTertiary
               isVisible={isModalVisible3}
               handleOk={handleOk3}
               handleCancel={handleCancel3}
             />
-            <pre> </pre>
+
             {/* <Button style={{ width: '9%' }}>Prescribe Drug</Button>
             <pre> </pre> */}
+            <pre> </pre>
             <Form
               labelCol={{ span: 0 }}
-              wrapperCol={{ span: 200 }}
+              wrapperCol={{ span: 100 }}
               layout="horizontal"
             >
               <Form.Item label="Case No">
-                <Input style={{ width: '75%' }} />
+                <Input style={{ width: '15%' }} />
+                <Text style={{ marginLeft: 10 }}>Patient No</Text>
+                <Input style={{ marginLeft: 10, width: '15%' }} />
               </Form.Item>
             </Form>
           </Row>
@@ -1810,7 +1835,7 @@ const ProcedureTertiary: React.FC = () => {
                                   color: 'black',
                                 }}
                               >
-                                Care Plan
+                                <strong>Care Plan</strong>
                               </Button>
 
                               <Modal
@@ -1820,7 +1845,7 @@ const ProcedureTertiary: React.FC = () => {
                                 onCancel={handleCancelCarePlan}
                                 width={400}
                                 bodyStyle={{ height: 500 }}
-                                style={{ fontSize: 20, left: 800, top: 200 }}
+                                style={{ fontSize: 20, left: 680, top: 100 }}
                                 title="Care Plan"
                                 footer={false}
                               >
